@@ -88,3 +88,13 @@ main{
     font-weight: lighter;
     font-size: 34pt;
 }
+
+
+.card-produto{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: justify;
+}
