@@ -1,0 +1,19 @@
+{
+  "name": "pethouse",
+  "version": "1.0.0",
+  "description": "ProjetoIntegrador",
+  "main": "app.js",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "yarn": "^1.22.18"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Grupo 01",
+  "license": "ISC"
+}
