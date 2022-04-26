@@ -14,9 +14,6 @@ router.get("/meuCarrinho", (req, res) => {
 router.get("/produtoInterna", (req, res) => {
   res.render("pages/produtoInterna");
 });
-router.get("/produtoInterna", (req, res) => {
-  res.render("pages/produtoInterna");
-});
 router.get("/minhaConta", (req, res) => {
   res.render("pages/minhaConta");
 });
