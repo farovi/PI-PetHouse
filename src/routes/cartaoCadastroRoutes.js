@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const cartaoCadastroController = require('../controllers/cartaoCadastroController');
+const cartaoCadastroController = require('../controllers/cartaoCadastradosController');
 
-router.get('/cartaoCadastro', cartaoCadastroController.list);
-router.get('/cartaoCadastro/detail/:id', cartaoCadastroController.detail);
+router.get('/cartaoCadastro', cartaoCadastroController.index);
 
 
 module.exports = router;
