@@ -6,6 +6,14 @@ var logger = require("morgan");
 var userRoutes = require("./routes/users");
 var app = express();
 
+//inicio banco de dados - processo de mvc - //
+const clienteRoutes = require('./routes/clienteRoutes');
+const fornecedorRoutes = require('./routes/fornecedorRoutes');
+const cartaoCadastroRoutes = require('./routes/cartaoCadastroRoutes');
+const produtosRoutes = require('./routes/produtosRoutes');
+
+// fim banco de dados - processo de mvc - //
+
 // view engine setup
 app.set("views", path.join(__dirname, "./views"));
 app.set("view engine", "ejs");
@@ -15,6 +23,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../public")));
+
+// inicio banco de dados - processo de mvc - //
+
+app.use(clienteRoutes);
+app.use(fornecedorRoutes);
+app.use(cartaoCadastroRoutes);
+app.use(produtosRoutes);
+
+// fim banco de dados - processo de mvc - //
 
 // catch 404 and forward to error handler
 // app.use(function (req, res, next) {
