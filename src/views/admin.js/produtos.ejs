@@ -1,0 +1,39 @@
+<%- include('../partials/header') %>
+
+
+<h1>Painel administrativo</h1>
+
+<h2> Serviços</h2>
+
+<a href="/admin/produtos/cadastrar">Adicionar novo</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Descrição</th>
+            <th>Açoes</th>
+        </tr>
+    </thead>
+</table>
+<tbody>
+<% for(let produto of produtos){ %>
+<tr>
+    <td><%= produto.nome %></td>
+    <td><%= produto.preco %></td>
+    <td><%= produto.descricão %></td>
+    <td> 
+        
+    <a href="/admin/produtos/editar/<%=produto.id %>">Editar</a>
+
+    <a href="/admin/produtos/excluir/<%=produto.id %>">Excluir</a>
+</td> 
+         
+    
+    </td>
+</tr>
+<% } %>
+</tbody>
+
+    <%- include('../partials/footer') %>

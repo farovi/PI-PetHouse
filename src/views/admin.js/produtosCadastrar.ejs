@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+<h1>Painel Administrativo</h1>
+
+<form action="/admin/servicos/acaoCadastrar" enctype="multipart/form-data" method="POST" class="cadastrar"></form>
+    
+   <label>Nome:</label>
+    <input type="text" name="nome"/>
+
+    <label>Preço:</label>
+    <input type="text" name="preço"/>
+
+    <label>Descriçao</label>
+    <textarea name="Descricao"></textarea>
+
+    <button>Cadastrar</button>
+
+</form> 
+
+<%- include('../partials/footer') %>
