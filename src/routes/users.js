@@ -23,5 +23,8 @@ router.get("/finalizado", (req, res) => {
 router.get("/login", (req, res) => {
   res.render("pages/login");
 });
+router.get("/admin", (req, res) => {
+  res.render("admin/produtosCadastrar");
+});
 
 module.exports = router;
