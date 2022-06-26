@@ -9,6 +9,16 @@ module.exports = (sequelize, DataTypes) => {
  }, {
      tableName: 'produtos',
      timestamp: true
- })
+ });
+
+ Produtos.associate = (listaDeModels) => {
+    Produtos.belongToMany(listaDeModels.Pedido, {
+        foreingKey: "fk_pedido",
+        as:"pedido",
+        through:listaDeModels.ProdutosHasPedido
+    }
+        )
+   };
+
      return Produtos;
  };

@@ -10,6 +10,31 @@ module.exports = (sequelize, DataTypes) => {
  }, {
      tableName: 'cliente',
      timestamp: true
- })
+ });
+
+Cliente.associate = (listaDeModels) => {
+    Cliente.hasMany(listaDeModels.Enderecos,
+        {
+            foreingKey: "fk_cliente",
+            as: "enderecos"
+        })
+} ;
+
+Cliente.associate = (listaDeModels) => {
+    Cliente.hasMany(listaDeModels.CartaoCadastro,
+        {
+            foreingKey: "fk_cliente",
+            as: "CartaoCadastro"
+        })
+} ;
+
+Cliente.associate = (listaDeModels) => {
+    Cliente.hasMany(listaDeModels.Pedido,
+        {
+            foreingKey: "fk_cliente",
+            as: "Pedido"
+        })
+} ;
+
      return Cliente;
  };

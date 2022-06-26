@@ -8,6 +8,25 @@ module.exports = (sequelize, DataTypes) => {
  }, {
      tableName: 'fornecedor',
      timestamp: true
- })
+ });
+
+
+ Fornecedor.associate = (listaDeModels) => {
+    Fornecedor.hasMany(listaDeModels.Enderecos,
+        {
+            foreingKey: "fk_Fornecedor",
+            as: "enderecos"
+        })
+           Fornecedor.belongToMany(listaDeModels.Pedido, {
+                foreingKey: "fk_pedido",
+                as:"pedido",
+                through:listaDeModels.ProdutosHasFornecedor
+            }
+                )
+           ;
+        
+} ;
+
+
      return Fornecedor;
  };

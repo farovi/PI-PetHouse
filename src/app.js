@@ -11,7 +11,10 @@ const clienteRoutes = require('./routes/clienteRoutes');
 const fornecedorRoutes = require('./routes/fornecedorRoutes');
 const cartaoCadastroRoutes = require('./routes/cartaoCadastroRoutes');
 const produtosRoutes = require('./routes/produtosRoutes');
-
+const pedidoRoutes = require('./routes/pedidoRoutes');
+const produtoHasPedidoRoutes = require('./routes/produtoHasPedidoRoutes');
+const produtoHasFornecedorRoutes = require('./routes/produtoHasFornecedorRoutes');
+const enderecosRoutes = require('./routes/enderecosRoutes');
 // fim banco de dados - processo de mvc - //
 
 // view engine setup
@@ -30,6 +33,11 @@ app.use(clienteRoutes);
 app.use(fornecedorRoutes);
 app.use(cartaoCadastroRoutes);
 app.use(produtosRoutes);
+app.use(pedidoRoutes);
+app.use(produtoHasPedidoRoutes);
+app.use(produtoHasFornecedorRoutes);
+app.use(enderecosRoutes);
+
 
 // fim banco de dados - processo de mvc - //
 
