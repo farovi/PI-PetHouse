@@ -30,4 +30,8 @@ module.exports = {
             allowNull: false
         }
     }))
-}
+};
+
+down : (QueryInterface, Sequelize) =>{
+    return QueryInterface.dropTable('cliente');
+};
