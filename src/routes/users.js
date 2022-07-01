@@ -1,5 +1,7 @@
 var express = require("express");
 var router = express.Router();
+const validation = require("../middlewares/validateRegisterMiddleware");
+const clienteController = require("../controllers/clienteController");
 
 router.get("/", (req, res) => {
   res.render("pages/home");
@@ -20,9 +22,7 @@ router.get("/minhaConta", (req, res) => {
 router.get("/finalizado", (req, res) => {
   res.render("pages/pedidoFinalizado");
 });
-router.get("/login", (req, res) => {
-  res.render("pages/login");
-});
+router.get("/login", validation, clienteController.index);
 router.get("/admin", (req, res) => {
   res.render("admin/produtosCadastrar");
 });
