@@ -1,6 +1,3 @@
-import { Model, DataTypes } from "sequelize";
-import { sequelize } from "../models";
-
 module.exports = (sequelize, DataTypes) => {
   const Cliente = sequelize.define(
     "Cliente",

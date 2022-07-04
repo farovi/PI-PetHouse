@@ -5,9 +5,6 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var userRoutes = require("./routes/users");
 var app = express();
-var dbUser = require("../models/Cliente.js");
-
-var User = dbUser;
 
 //inicio banco de dados - processo de mvc - //
 const clienteRoutes = require("./routes/clienteRoutes");
@@ -60,22 +57,5 @@ app.use(enderecosRoutes);
 // });
 
 app.use("/", userRoutes);
-
-app.post("/cadastrar", async (req, res) => {
-  const user = await User.create(req.body)
-    //verificando se conseguio cadastrar com sucesso
-    .then(() => {
-      return res.json({
-        erro: false,
-        mensage: "Usuario cadastrado com sucesso!",
-      });
-    })
-    .catch(() => {
-      return res.status(400).json({
-        erro: true,
-        mensage: "Usuario não cadastrado com sucesso!",
-      });
-    });
-});
 console.log("servidor rodando");
 app.listen(3000);
