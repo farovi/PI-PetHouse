@@ -2,7 +2,7 @@ const { validationResult } = require("express-validator");
 
 const clienteController = {
   index: (req, res) => {
-    res.send("pages/login");
+    res.render("pages/login");
   },
   processRegister: (req, res) => {
     const resultValidations = validationResult(req);

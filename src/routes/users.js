@@ -23,6 +23,7 @@ router.get("/finalizado", (req, res) => {
   res.render("pages/pedidoFinalizado");
 });
 router.get("/login", validation, clienteController.index);
+
 router.get("/admin", (req, res) => {
   res.render("admin/produtosCadastrar");
 });
