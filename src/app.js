@@ -5,16 +5,19 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var userRoutes = require("./routes/users");
 var app = express();
+var dbUser = require("../models/Cliente.js");
+
+var User = dbUser;
 
 //inicio banco de dados - processo de mvc - //
-const clienteRoutes = require('./routes/clienteRoutes');
-const fornecedorRoutes = require('./routes/fornecedorRoutes');
-const cartaoCadastroRoutes = require('./routes/cartaoCadastroRoutes');
-const produtosRoutes = require('./routes/produtosRoutes');
-const pedidoRoutes = require('./routes/pedidoRoutes');
-const produtoHasPedidoRoutes = require('./routes/produtoHasPedidoRoutes');
-const produtoHasFornecedorRoutes = require('./routes/produtoHasFornecedorRoutes');
-const enderecosRoutes = require('./routes/enderecosRoutes');
+const clienteRoutes = require("./routes/clienteRoutes");
+const fornecedorRoutes = require("./routes/fornecedorRoutes");
+const cartaoCadastroRoutes = require("./routes/cartaoCadastroRoutes");
+const produtosRoutes = require("./routes/produtosRoutes");
+const pedidoRoutes = require("./routes/pedidoRoutes");
+const produtoHasPedidoRoutes = require("./routes/produtoHasPedidoRoutes");
+const produtoHasFornecedorRoutes = require("./routes/produtoHasFornecedorRoutes");
+const enderecosRoutes = require("./routes/enderecosRoutes");
 // fim banco de dados - processo de mvc - //
 
 // view engine setup
@@ -38,7 +41,6 @@ app.use(produtoHasPedidoRoutes);
 app.use(produtoHasFornecedorRoutes);
 app.use(enderecosRoutes);
 
-
 // fim banco de dados - processo de mvc - //
 
 // catch 404 and forward to error handler
@@ -58,5 +60,22 @@ app.use(enderecosRoutes);
 // });
 
 app.use("/", userRoutes);
+
+app.post("/cadastrar", async (req, res) => {
+  const user = await User.create(req.body)
+    //verificando se conseguio cadastrar com sucesso
+    .then(() => {
+      return res.json({
+        erro: false,
+        mensage: "Usuario cadastrado com sucesso!",
+      });
+    })
+    .catch(() => {
+      return res.status(400).json({
+        erro: true,
+        mensage: "Usuario não cadastrado com sucesso!",
+      });
+    });
+});
 console.log("servidor rodando");
 app.listen(3000);

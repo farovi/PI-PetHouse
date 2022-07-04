@@ -1,7 +1,8 @@
 var express = require("express");
 var router = express.Router();
 const validation = require("../middlewares/validateRegisterMiddleware");
-const clienteController = require("../controllers/clienteController");
+const loginconntroller = require("../controllers/loginController");
+const createUser = require("../controllers/loginController");
 
 router.get("/", (req, res) => {
   res.render("pages/home");
@@ -22,10 +23,8 @@ router.get("/minhaConta", (req, res) => {
 router.get("/finalizado", (req, res) => {
   res.render("pages/pedidoFinalizado");
 });
-router.get("/login", validation, clienteController.index);
+router.get("/login", validation, loginconntroller.index);
 
-router.get("/admin", (req, res) => {
-  res.render("admin/produtosCadastrar");
-});
+router.post("/admin", createUser.index);
 
 module.exports = router;

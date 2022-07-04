@@ -14,12 +14,29 @@
   dependencies:
     "defer-to-connect" "^1.0.1"
 
+"@types/bluebird@*":
+  "integrity" "sha512-HBNx4lhkxN7bx6P0++W8E289foSu8kO8GCk2unhuVggO+cE7rh9DhZUyPhUxNRG9m+5B5BTKxZQ5ZP92x/mx9Q=="
+  "resolved" "https://registry.npmjs.org/@types/bluebird/-/bluebird-3.5.36.tgz"
+  "version" "3.5.36"
+
+"@types/continuation-local-storage@*":
+  "integrity" "sha512-OT32vCVMymU1JMPKDeY0lX3cduAr0Pm/VwIbxygMeDS4lRcv57qYXn9bMwBRcRnEpXKBb/r4xYaZCARTZllP0A=="
+  "resolved" "https://registry.npmjs.org/@types/continuation-local-storage/-/continuation-local-storage-3.2.4.tgz"
+  "version" "3.2.4"
+  dependencies:
+    "@types/node" "*"
+
 "@types/debug@^4.1.7":
   "integrity" "sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg=="
   "resolved" "https://registry.npmjs.org/@types/debug/-/debug-4.1.7.tgz"
   "version" "4.1.7"
   dependencies:
     "@types/ms" "*"
+
+"@types/lodash@*":
+  "integrity" "sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q=="
+  "resolved" "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.182.tgz"
+  "version" "4.14.182"
 
 "@types/ms@*":
   "integrity" "sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA=="
@@ -31,7 +48,17 @@
   "resolved" "https://registry.npmjs.org/@types/node/-/node-17.0.35.tgz"
   "version" "17.0.35"
 
-"@types/validator@^13.7.1":
+"@types/sequelize@^4.28.13":
+  "integrity" "sha512-ZR7k22F3xEqbGUWW7ZgysttmOUPIFyTPA2oPPjlT47h2iJtALrtNTXdEF5erW7bHCG2H+Byuy5MbpLj3znE7wQ=="
+  "resolved" "https://registry.npmjs.org/@types/sequelize/-/sequelize-4.28.13.tgz"
+  "version" "4.28.13"
+  dependencies:
+    "@types/bluebird" "*"
+    "@types/continuation-local-storage" "*"
+    "@types/lodash" "*"
+    "@types/validator" "*"
+
+"@types/validator@*", "@types/validator@^13.7.1":
   "integrity" "sha512-KFcchQ3h0OPQgFirBRPZr5F/sVjxZsOrQHedj3zi8AH3Zv/hOLx2OLR4hxR5HcfoU+33n69ZuOfzthKVdMoTiw=="
   "resolved" "https://registry.npmjs.org/@types/validator/-/validator-13.7.2.tgz"
   "version" "13.7.2"
@@ -102,6 +129,11 @@
   "version" "2.0.1"
   dependencies:
     "safe-buffer" "5.1.2"
+
+"bcrypt-nodejs@^0.0.3":
+  "integrity" "sha512-NmTbLm867btBHCBZ222FQXkQKzecB0KG6pTXFa6NeTVZaSnLfCsx7EK2PL3J+kX8xJThUquEBbhimRCKKZX9zA=="
+  "resolved" "https://registry.npmjs.org/bcrypt-nodejs/-/bcrypt-nodejs-0.0.3.tgz"
+  "version" "0.0.3"
 
 "binary-extensions@^2.0.0":
   "integrity" "sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA=="
@@ -1494,10 +1526,10 @@
   "resolved" "https://registry.npmjs.org/sequelize-pool/-/sequelize-pool-7.1.0.tgz"
   "version" "7.1.0"
 
-"sequelize@^6.20.1":
-  "integrity" "sha512-1YBMv++Yy1JBFFiac1Xoa+Km5qV6YI1ckdkW0xyD7IpLMtE5JmjgZdZXGfwgRUNjhaKMxdzT+nkvJgeXO0rv/g=="
-  "resolved" "https://registry.npmjs.org/sequelize/-/sequelize-6.20.1.tgz"
-  "version" "6.20.1"
+"sequelize@^6.21.2":
+  "integrity" "sha512-K0c6j/Y6yfucBL9XYHMVWqYGFShPsj6ZzMrQcOAjqzyE+a1XMBOoTXXjRvJS+fz6cKeh2D3ZqhYDRwN8nfvOMQ=="
+  "resolved" "https://registry.npmjs.org/sequelize/-/sequelize-6.21.2.tgz"
+  "version" "6.21.2"
   dependencies:
     "@types/debug" "^4.1.7"
     "@types/validator" "^13.7.1"
