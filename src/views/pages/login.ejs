@@ -23,11 +23,13 @@
                 <h1>Cadastrar</h1>
 
                 <div class="Form">
-                    <input type="text" placeholder="Digite seu nome ">
-                    <input type="text" placeholder="Digite seu email">
-                    <input type="password" placeholder="Digite sua senha">
-                    <input type="password" placeholder="Confirme a senha">
-                    <button class="btn">Cadastrar</button>
+                    <form action="/cadastro" method="post">
+                        <input type="text" name="nome" placeholder="Digite seu nome ">
+                        <input type="text" name="nome" placeholder="Digite seu email">
+                        <input type="password" name="senha" placeholder="Digite sua senha">
+                        <input type="password" name="senha" placeholder="Confirme a senha">
+                        <button class="btn">Cadastrar</button>
+                    </form>
                     <div class="social">
                         <button class="facebook btn">
                             <img src="./imagens/facebook-f-brands.svg" style="width: 10px;"><a

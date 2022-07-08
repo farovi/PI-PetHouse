@@ -5,6 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var userRoutes = require("./routes/users");
 var app = express();
+require("../config/database");
 
 //inicio banco de dados - processo de mvc - //
 const clienteRoutes = require("./routes/clienteRoutes");
