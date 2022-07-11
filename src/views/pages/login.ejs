@@ -27,8 +27,8 @@
                         <input type="text" name="nome" placeholder="Digite seu nome ">
                         <input type="text" name="nome" placeholder="Digite seu email">
                         <input type="password" name="senha" placeholder="Digite sua senha">
-                        <input type="password" name="senha" placeholder="Confirme a senha">
-                        <button class="btn">Cadastrar</button>
+                        <!-- <input type="password" name="senha" placeholder="Confirme a senha"> -->
+                        <button id="SubmitButton" class="btn">Cadastrar</button>
                     </form>
                     <div class="social">
                         <button class="facebook btn">
@@ -61,5 +61,29 @@
     </div>
 
 </body>
+
+<script>
+    const button = document.getElementById("SubmitButton")
+    button.addEventListener("click", submit)
+    const body = {
+        "nome_cliente": "msasarcos",
+        "nome_social": "casassaca",
+        "telefone": "12344",
+        "email": "marcola@gamail.com",
+        "senha": "senhssa"
+    }
+    const rota = "http://localhost:3000/cadastro"
+    function submit() {
+        fetch(rota, {
+            headers: {
+                "Content-Type": "Application/json"
+            },
+
+            body: JSON.stringify(body),
+            method: "POST"
+        })
+    }
+
+</script>
 
 </html>

@@ -15,8 +15,8 @@ if (config.use_env_variable) {
 } else {
   sequelize = new Sequelize(
     config.database,
-    
-config.username,
+
+    config.username,
     config.password,
     config
   );
@@ -46,7 +46,6 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
-
 
 /*"use strict";
 
