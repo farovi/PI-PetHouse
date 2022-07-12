@@ -5,7 +5,7 @@ const Produtos = require("../../models/Produtos")(sequelize, DataTypes);
 const produtosController = {
   index: async (req, res) => {
     const produtos = await Produtos.findAll();
-    res.json(produtos);
+    res.render('produtos',{produtos});
   },
 };
 
