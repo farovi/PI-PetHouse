@@ -1,18 +1,18 @@
 module.exports = (sequelize, DataTypes) => {
-    const ProdutoHasFornecedor = sequelize.define(
-        "ProdutoHasFornecedor",
+    const ProdutoHasPedido = sequelize.define(
+        "ProdutoHasPedido",
         {
-            valor_pago: DataTypes.FLOAT,
+            quantidade: DataTypes.NUMBER,
             produto_id: DataTypes.INTEGER,
-            fornecedor_id: DataTypes.INTEGER,
+            pedido_id: DataTypes.INTEGER,
             // created_at: DataTypes.DATE,
             // updated_at: DataTypes.DATE,
         },
         {
-            tableName: 'produtoHasFornecedor',
+            tableName: 'produtoHasPedido',
             timestamp: true
         }
     );
 
-    return ProdutoHasFornecedor;
+    return ProdutoHasPedido;
 };

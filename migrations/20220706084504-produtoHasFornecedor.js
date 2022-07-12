@@ -3,7 +3,7 @@
 module.exports = {
     async up(queryInterface, Sequelize) {
 
-        await queryInterface.createTable('produtoHasPedido', {
+        await queryInterface.createTable('produtoHasFornecedor', {
             produto_id: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
@@ -13,26 +13,23 @@ module.exports = {
                 }
             },
 
-            pedido_id: {
+            fornecedor_id: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
                 references: {
-                    model: "pedidos",
+                    model: "fornecedores",
                     key: 'id'
                 }
             },
 
-            quantidade: Sequelize.INTEGER
+            valor_pago: Sequelize.FLOAT
         });
 
     },
 
     async down(queryInterface, Sequelize) {
 
-        await queryInterface.dropTable('produtoHasPedido');
+        await queryInterface.dropTable('produtoHasFornecedor');
 
     }
 };
-
-
-//sequelize migration:generate --name produtoHasPedido <=  (exemp. comando para criar migrates)//
