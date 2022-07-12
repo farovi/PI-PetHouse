@@ -3,8 +3,14 @@ const DataTypes = require("sequelize");
 const cliente = require("../../models/Cliente")(sequelize, DataTypes);
 
 const cadastroController = {
-  index: async (req, res) => {
+  create: async (req, res) => {
     const { nome_cliente, nome_social, telefone, email, senha } = req.body;
+
+    if (await cliente.findOne({ email })) {
+      return res.render("pages/login", {
+        message: "aaaaaaaaaaaaaaaaaaaaaaaaa",
+      });
+    }
     const user = await cliente
       .create({
         nome_cliente,
@@ -16,7 +22,7 @@ const cadastroController = {
 
       //verificando se conseguio cadastrar com sucesso
       .then(() => {
-        return res.json(user);
+        return res.render("pages/home");
       })
       .catch((err) => {
         return res.status(400).json({
