@@ -28,8 +28,8 @@ router.get("/finalizado", (req, res) => {
 });
 router.get("/login", validation, loginconntroller.index);
 
-// router.post("/admin", validation, createUser.index);
+// // router.post("/admin", validation, createUser.index);
 
-router.post("/cadastro", cadastroController.index);
+router.post("/cadastro", cadastroController.create);
 
 module.exports = router;

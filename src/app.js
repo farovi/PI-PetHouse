@@ -6,6 +6,7 @@ var logger = require("morgan");
 var userRoutes = require("./routes/users");
 var app = express();
 require("../config/database");
+const bodyParser = require("body-parser");
 
 //inicio banco de dados - processo de mvc - //
 const clienteRoutes = require("./routes/clienteRoutes");
@@ -21,7 +22,7 @@ const enderecosRoutes = require("./routes/enderecosRoutes");
 // view engine setup
 app.set("views", path.join(__dirname, "./views"));
 app.set("view engine", "ejs");
-
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

@@ -1,9 +1,10 @@
 const { validationResult } = require("express-validator");
 const User = require("../../models/Cliente");
+const cadastroController = require("./cadastroController");
 
 const loginconntroller = {
   index: (req, res) => {
-    res.render("pages/login");
+    res.render("pages/login", { alert: true });
   },
   processRegister: (req, res) => {
     const resultValidations = validationResult(req);
@@ -14,28 +15,10 @@ const loginconntroller = {
         oldData: req.body,
       });
     }
+    cadastroController.create(req.body);
     return res.send("pages/home");
   },
 };
-
-// const createUser = {
-//   index: async (req, res) => {
-//     const newUser = await User.create(req.body)
-//       //verificando se conseguio cadastrar com sucesso
-//       .then(() => {
-//         return res.json({
-//           erro: false,
-//           mensage: "Usuario cadastrado com sucesso!",
-//         });
-//       })
-//       .catch(() => {
-//         return res.status(400).json({
-//           erro: true,
-//           mensage: "Usuario não cadastrado com sucesso!",
-//         });
-//       });
-//   },
-// };
 
 module.exports = loginconntroller;
 // module.exports = createUser;
