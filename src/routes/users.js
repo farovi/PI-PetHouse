@@ -26,8 +26,8 @@ router.get("/minhaConta", (req, res) => {
 router.get("/finalizado", (req, res) => {
   res.render("pages/pedidoFinalizado");
 });
-router.get("/login", validation, loginconntroller.index);
-
+router.post("/auth/login", cadastroController.authlogin);
+router.get("/login", cadastroController.login);
 // // router.post("/admin", validation, createUser.index);
 
 router.post("/cadastro", cadastroController.create);
