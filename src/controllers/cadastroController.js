@@ -1,24 +1,16 @@
 const sequelize = require("../../models/db");
 const DataTypes = require("sequelize");
 const cliente = require("../../models/Cliente")(sequelize, DataTypes);
-const bcrypt = require("bcrypt-nodejs");
+const bcrypt = require("bcryptjs");
 
 const cadastroController = {
   login: (req, res) => {
     res.render("pages/login");
   },
   create: async (req, res) => {
-    const {
-      nome_cliente,
-      nome_social,
-      telefone,
-      email,
-      senha,
-      confirma_senha,
-    } = req.body;
+    const { nome_cliente, email, senha, confirma_senha } = req.body;
 
     if (await cliente.findOne({ where: { email: email } })) {
-      console.log("Email ja existe");
       return res.render("pages/login", {
         message: ".",
       });
@@ -44,26 +36,24 @@ const cadastroController = {
     const salt = await bcrypt.genSalt(12);
     const senhaHash = await bcrypt.hash(senha, salt);
 
-    const user = await cliente
-      .create({
+    try {
+      const user = await cliente.create({
         nome_cliente,
-        nome_social,
-        telefone,
         email,
         senha: senhaHash,
         confirma_senha,
-      })
-
-      //verificando se conseguio cadastrar com sucesso
-      .then(() => {
-        return res.render("pages/home");
-      })
-      .catch((err) => {
-        return res.status(400).json({
-          erro: true,
-          mensage: err,
-        });
       });
+      return res.status(200).json({ message: "usuario cadastrado!" });
+    } catch (err) {
+      //verificando se conseguio cadastrar com sucesso
+      // .then(() => {
+      //   return res.render("pages/home");
+      // })
+      return res.status(400).json({
+        erro: true,
+        mensage: err,
+      });
+    }
   },
 
   //login do usuario
@@ -84,9 +74,14 @@ const cadastroController = {
     if (!user) {
       return res.status(422).json({ msg: "Usuario Não encontrado" });
     }
-    const senhaUser = await bcrypt.compare(senha, user.senha);
-    if (!senhaUser) {
-      return res.status(422).json({ msg: "senha incorreta" });
+
+    try {
+      if (bcrypt.compareSync(senha, user.senha)) {
+        console.log("kkkk", user.senha);
+        return res.status(200).json({ msg: "usuario encontrado" });
+      }
+    } catch (error) {
+      res.json(error);
     }
   },
 };
