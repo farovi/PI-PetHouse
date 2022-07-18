@@ -11,9 +11,7 @@ const cadastroController = {
     const { nome_cliente, email, senha, confirma_senha } = req.body;
 
     if (await cliente.findOne({ where: { email: email } })) {
-      return res.render("pages/login", {
-        message: ".",
-      });
+      return res.render("pages/login");
     }
     if (!nome_cliente) {
       return res.status(422).json({ message: "Nome é obrigatorio!" });
@@ -43,16 +41,9 @@ const cadastroController = {
         senha: senhaHash,
         confirma_senha,
       });
-      return res.status(200).json({ message: "usuario cadastrado!" });
+      return res.status(200).redirect("/");
     } catch (err) {
-      //verificando se conseguio cadastrar com sucesso
-      // .then(() => {
-      //   return res.render("pages/home");
-      // })
-      return res.status(400).json({
-        erro: true,
-        mensage: err,
-      });
+      return res.status(400).json(err);
     }
   },
 
@@ -77,12 +68,13 @@ const cadastroController = {
 
     try {
       if (bcrypt.compareSync(senha, user.senha)) {
-        console.log("kkkk", user.senha);
-        return res.status(200).json({ msg: "usuario encontrado" });
+        return res.status(200).redirect("/");
       }
     } catch (error) {
       res.json(error);
     }
+    req.session.emailUsuario = user.email;
+    res.redirect("/");
   },
 };
 

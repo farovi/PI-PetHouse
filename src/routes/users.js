@@ -1,29 +1,26 @@
 var express = require("express");
 var router = express.Router();
-const validation = require("../middlewares/validateRegisterMiddleware");
-const loginconntroller = require("../controllers/loginController");
+const AutenticacaoAdmin = require("../middlewares/validateRegisterMiddleware");
 const cadastroController = require("../controllers/cadastroController");
-const createUser = require("../controllers/loginController");
-const sequelize = require("../../models/db");
-// const cliente = require("../../models/Cliente")(sequelize, DataTypes);
+
 router.use(express.json());
 router.get("/", (req, res) => {
   res.render("pages/home");
 });
-router.get("/checkout", (req, res) => {
+router.get("/checkout", AutenticacaoAdmin, (req, res) => {
   res.render("pages/checkout");
 });
 
-router.get("/meuCarrinho", (req, res) => {
+router.get("/meuCarrinho", AutenticacaoAdmin, (req, res) => {
   res.render("pages/meuCarrinho");
 });
-router.get("/produtoInterna", (req, res) => {
+router.get("/produtoInterna", AutenticacaoAdmin, (req, res) => {
   res.render("pages/produtoInterna");
 });
-router.get("/minhaConta", (req, res) => {
+router.get("/minhaConta", AutenticacaoAdmin, (req, res) => {
   res.render("pages/minhaConta");
 });
-router.get("/finalizado", (req, res) => {
+router.get("/finalizado", AutenticacaoAdmin, (req, res) => {
   res.render("pages/pedidoFinalizado");
 });
 router.post("/auth/login", cadastroController.authlogin);
