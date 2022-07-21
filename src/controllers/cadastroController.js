@@ -30,7 +30,7 @@ const cadastroController = {
         .json({ message: "Senha deve ter pelo menos 6 caracteres!" });
     }
     if (senha !== confirma_senha) {
-      return res.status(422).json({ message: "As senhas deve ser igual!" });
+      return res.render("login", { msg: AAAAAAAAAAAAAAAAAA });
     }
 
     const salt = await bcrypt.genSalt(12);

@@ -26,11 +26,18 @@
 
 
                     <form action="/cadastro" method="post">
-                        <input type="text" name="nome_cliente" id='name' placeholder="Digite seu nome " />
-                        <input type="text" name="email" id="email" placeholder="Digite seu email" />
-                        <input type="password" name="senha" placeholder="Digite sua senha" />
-                        <input type="password" name="confirma_senha" placeholder="Confirme a senha">
-                        <button type="submit" id="SubmitButton" class="btn">Cadastrar</button>
+                        <input type="text" name="nome_cliente" id='name' placeholder="Digite seu nome " required />
+                        <input type="text" name="email" id="email" placeholder="Digite seu email" required />
+                        <input type="password" name="senha" placeholder="Digite sua senha" required />
+                        <input type="password" name="confirma_senha" placeholder="Confirme a senha" required />
+                        <% if(msg) { %>
+                            <p>
+                                <label style="color:Red">
+                                    <%= msg %>
+                                </label>
+                            </p>
+                            <%}%>
+                                <button type="submit" id="SubmitButton" class="btn">Cadastrar</button>
                     </form>
                     <div class="social">
                         <button class="facebook btn">
@@ -51,8 +58,8 @@
                 <div class="Form">
                     <form class="Form" action="/login" method="post">
                         <form action="/cadastro" method="post">
-                            <input name="email" type="text" placeholder=" Digite seu E-mail">
-                            <input name="senha" type="password" placeholder=" Digite sua senha">
+                            <input name="email" type="text" placeholder=" Digite seu E-mail" required>
+                            <input name="senha" type="password" placeholder=" Digite sua senha" required>
                             <button type="submit" id="SubmitButton" class="btn">Entrar</button>
                         </form>
                 </div>
